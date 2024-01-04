@@ -37854,7 +37854,7 @@ async function getContributorsList() {
         	.join("\n")
 			);
 		})
-		.join("\n\n") + contributors.unconnected.join("\n");
+		.join("\n\n") + contributors['unconnected'].join("\n");
 }
 
 /**
