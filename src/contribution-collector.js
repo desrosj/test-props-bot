@@ -212,9 +212,14 @@ export async function getContributorsList() {
 				}
         	})
         	.join("\n")
-			);
+			)
+		.join("\n\n") + contributors['unconnected'].map((username) => {
+			return username;
 		})
-		.join("\n\n") + contributors['unconnected'].join("\n");
+		.join("\n");
+
+		});
+
 }
 
 /**
