@@ -93,7 +93,7 @@ export async function getContributorsList() {
 		.forEach((review) => contributors.reviewers.add(review.author.login));
 
 	core.debug('Reviewers:');
-	core.debug(contributors.reviews);
+	core.debug(contributors.reviewers);
 
 	// Process pull request comments.
 	contributorData.comments.nodes
