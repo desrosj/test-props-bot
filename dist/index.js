@@ -37821,7 +37821,7 @@ async function getContributorsList() {
 			if (contributors[priority].length === 0) {
 				return [];
 			}
-
+console.debug( priority );
 			// Add a header for each section.
 			const header =
         "# " + priority.replace(/^./, (char) => char.toUpperCase()) + "\n";
