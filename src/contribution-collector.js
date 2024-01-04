@@ -14,7 +14,7 @@ const prNumber = context.payload?.pull_request?.number;
  *
  * @type {string[]}
  */
-const contributorTypes = ["committers", "reviewers", "commenters", "reporters"];
+const contributorTypes = ["committers", "reviewers", "commenters", "reporters", "unconnected"];
 
 /**
  * List of user data objects.
@@ -175,8 +175,6 @@ export async function getContributorsList() {
 		}
 	});
 
-	const unconnectedUsers = [];
-
 	return contributorTypes
 		.map((priority) => {
 			// Skip an empty set of contributors.
@@ -201,11 +199,15 @@ export async function getContributorsList() {
         				"dotOrg"
         			)
         		) {
-        			unconnectedUsers.push(username);
+					contributors.unconnected.push(username);
         			return;
         		}
 
-        		return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
+				if ('unconnected'!=priority) {
+					return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
+				} else {
+					return username;
+				}
         	})
         	.join("\n")
 			);
