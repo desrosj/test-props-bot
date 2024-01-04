@@ -37852,14 +37852,9 @@ async function getContributorsList() {
 				}
         	})
         	.join("\n")
-			)
-		.join("\n\n") + contributors['unconnected'].map((username) => {
-			return username;
+			);
 		})
-		.join("\n");
-
-		});
-
+		.join("\n\n");
 }
 
 /**
