@@ -37844,6 +37844,7 @@ async function getContributorsList() {
         		}
 
 				if ('unconnected'!=priority) {
+					core.debug( 'Unconnected contributor' );
 					return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
 				} else {
 					return username;
