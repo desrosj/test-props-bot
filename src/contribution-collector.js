@@ -60,6 +60,7 @@ export async function getContributorsList() {
     prNumber,
   });
 
+  core.debug(contributorData);
   // Process pull request commits.
   for (const commit of contributorData?.commits?.nodes || []) {
     /*
