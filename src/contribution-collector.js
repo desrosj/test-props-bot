@@ -69,7 +69,6 @@ export async function getContributorsList() {
 		 * For these, info that may help us guess later.
 		 */
 		if (null === commit.commit.author.user) {
-			core.info("User object does not exist.");
 			contributors.committers.add(commit.commit.author.email);
 			userData[commit.commit.author.email] = {
 				name: commit.commit.author.name,
