@@ -181,7 +181,7 @@ export async function getContributorsList() {
 			if (contributors[priority].length === 0) {
 				return [];
 			}
-console.debug( priority );
+
 			// Add a header for each section.
 			const header =
         "# " + priority.replace(/^./, (char) => char.toUpperCase()) + "\n";
@@ -203,18 +203,18 @@ console.debug( priority );
         			return;
         		}
 
-				console.debug( contributors.unconnected );
-				if ('unconnected'!=priority) {
-					return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
-				} else {
+				if ('unconnected' == priority) {
 					core.debug( 'Unconnected contributor: ' + username );
 					return username;
+				} else {
+					return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
+
 				}
         	})
         	.join("\n")
 			);
 		})
-		.join("\n\n");
+		.join("\n\n") + contributors.unconnected.join("\n");
 }
 
 /**
