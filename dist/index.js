@@ -37843,6 +37843,7 @@ console.debug( priority );
         			return;
         		}
 
+				console.debug( contributors.unconnected );
 				if ('unconnected'!=priority) {
 					return `Co-authored-by: ${username} <${dotOrg}@git.wordpress.org>`;
 				} else {
