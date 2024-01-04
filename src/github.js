@@ -162,18 +162,18 @@ export default class GitHub {
 					body: comment.body,
 				});
 			} catch (e) {
-				console.log("Error editing previous comment: " + e.message);
+				core.info("Error editing previous comment: " + e.message);
 				commentId = null;
 			}
 		}
 
 		// No previous or edit comment failed.
 		if (!commentId) {
-			console.log("Creating new comment");
+			core.info("Creating new comment");
 			try {
 				await this.octokit.rest.issues.createComment(comment);
 			} catch (e) {
-				console.log(`Error creating comment: ${e.message}`);
+				core.error(`Error creating comment: ${e.message}`);
 			}
 		}
 	}
