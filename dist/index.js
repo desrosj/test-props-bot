@@ -37839,7 +37839,7 @@ async function getContributorsList() {
         				"dotOrg"
         			)
         		) {
-					contributors.unconnected.push(username);
+					contributors.unconnected.add(username);
         			return;
         		}
 
